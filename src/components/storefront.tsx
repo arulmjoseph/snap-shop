@@ -123,7 +123,7 @@ function Header() {
           <div className="hidden items-center gap-5 sm:flex"><span>Dubai showroom</span><span>Expert support</span></div>
         </div>
       </div>
-      <div className="mx-auto grid h-18 max-w-[1440px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 sm:h-20 sm:px-8 lg:gap-10">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-8 lg:h-20 lg:py-0 lg:gap-10">
         <div className="lg:hidden">
           <Sheet>
             <SheetTrigger asChild><Button variant="ghost" size="icon" aria-label="Open menu"><Menu /></Button></SheetTrigger>
@@ -168,6 +168,7 @@ function Hero() {
     return () => window.clearInterval(timer);
   }, []);
   const slide = heroSlides[active];
+  if (!slide) return null;
   return (
     <section className="relative min-h-[560px] overflow-hidden bg-footer sm:min-h-[620px] lg:min-h-[650px]">
       <img src={slide.image} alt="Professional camera equipment" width={1600} height={900} className={cn("absolute inset-0 size-full object-cover transition-opacity duration-500", active === 1 && "object-[65%_center] opacity-70")} />
